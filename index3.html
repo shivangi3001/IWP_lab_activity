@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+
+.container{
+    margin: 50px 10%;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Increment</h2>
+        <button onclick="increment()">add 1</button>
+        <input type="number" id="incre">
+        
+        <br><br>
+
+        <h2>Add numbers</h2>
+        <input type="number" id="num1"> + <input type="number" id="num2">
+        <button onclick="add()">=</button>
+        <input type="number" id="sum">
+
+        <br><br>
+
+        <h2>Is it prime?</h2>
+        <input type="number" id="primeNum">
+        <button onclick="prime()">Prime?(Yes/No)</button>
+        <input type="text" id="primes">
+
+        <br><br>
+
+        <h2>Number Guessing Game?</h2>
+        <input type="number" id="randomNum">
+        <button onclick="guess()">Am I Right?(Yes/No)</button>
+        <input type="text" id="guessing" size="40">
+    </div>
+    
+
+    <script>
+       
+       function increment(){
+        var nums = parseInt(document.getElementById("incre").value);
+        nums = nums+1;
+        document.getElementById("incre").value = nums;
+       }
+
+       function add(){
+        var num1 = parseInt(document.getElementById("num1").value);
+        var num2 = parseInt(document.getElementById("num2").value);
+        document.getElementById("sum").value = num1 +num2;
+       }
+
+       function prime(){
+        var num3 = parseInt(document.getElementById("primeNum").value);
+        var c=0;
+        var result;
+        for(var i=2;i<num3;i++){
+            if(num3%i == 0) c++;
+        }
+        if(c == 0) result = "Yes";
+        else  result = "No";
+        document.getElementById("primes").value = result;
+       }
+
+       var num4 = Math.floor(Math.random()*100);
+       var count =1;
+       function guess(){
+        var num5 = parseInt(document.getElementById("randomNum").value);
+        
+
+        if(num4 == num5) 
+        document.getElementById("guessing").value = "YES you guess it right in "+ count+" guesses";
+
+        else if( num4 > num5){
+        document.getElementById("guessing").value = "try higher value ";
+        count++;
+        }
+        else {
+        document.getElementById("guessing").value = "try lower value ";
+        count++;
+        }
+       }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Order System</title>
+
+    <script type="text/javascript">
+
+    var option = prompt("Choose from the following\nPress-Y To give Inputs\nPress-N To exit");
+
+    var sales1=0, sales2=0, sales3=0, sales4=0, sales5=0;
+    while(option === 'y' || option === 'Y'){
+        var itemnum =  parseInt(prompt("Enter product number or press q to quit"));
+        var quantity = parseInt(prompt("enter the quantity sold in 1 day"));
+        
+        switch(itemnum){
+            case 1:
+                sales1 = sales1 + (2.98*quantity);
+                break;
+            case 2:
+                sales2 = sales2 + (4.50*quantity);
+                break;
+            case 3:
+                sales3 = sales3 + (9.98*quantity);
+                break;
+            case 4:
+                sales4 = sales4 + (4.49*quantity);
+                break;
+            case 5:
+                sales5 = sales5 + (6.87*quantity);
+                break;
+            default:
+                option = prompt("Invalid product number\npress y - to continue \t  press q - to quit");
+        }
+        
+    }
+    alert(sales1+"\n"+sales2+"\n"+sales3+"\n"+sales4+"\n"+sales5);
+
+    function sales () {
+    document.getElementById('prod1').innerHTML = sales1;
+    document.getElementById('prod2').innerHTML = sales2;
+    document.getElementById('prod3').innerHTML = sales3;
+    document.getElementById('prod4').innerHTML = sales4;
+    document.getElementById('prod5').innerHTML = sales5;
+}
+
+
+
+    </script>
+
+    <style>
+        table{
+            margin: 4rem;
+        }
+        table,td {
+            border: 1px solid #333;
+        }
+
+        thead{
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body onload="sales();">
+
+    <table>
+        <thead>
+            <tr>
+                <td>Product#</td>
+                <td>Total Sales</td>
+            </tr>
+        </thead>
+    
+        <tbody>
+        <tr>
+            <td>Product 1</td>
+            <td id="prod1"></td>
+            
+        </tr>
+        <tr>
+            <td>Product 2</td>
+            <td id="prod2"></td>
+            
+        </tr>
+        <tr>
+            <td>Product 3</td>
+            <td id="prod3"></td>
+        </tr>
+        <tr>
+            <td>Product 4</td>
+            <td id="prod4"></td>
+        </tr>
+        <tr>
+            <td>Product 5</td>
+            <td id="prod5"></td>
+        </tr>
+        </tbody>
+</table>
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 2</title>
+
+    <style>
+        *{
+            background: rgb(136, 255, 215);
+        }
+        .container{
+            margin: 40px auto;
+            width: 50%;
+        }
+
+        .slider img {
+            width: 50vw;
+            height: 70vh;
+        }
+        .container .btns {
+            margin: 1rem;
+            margin-left: 12rem;
+        }
+        .btn{
+            margin: 0 1rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: rgb(253, 251, 251);
+            font-weight: bold;
+            background-color: rgb(160, 150, 150);
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="slider">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Voluptatibus aperiam sequi itaque, pariatur eveniet nam, 
+                neque temporibus aspernatur tenetur unde quibusdam suscip
+            </p>
+            <img src="2.jpeg" alt="image" class="slide-img">
+        </div>
+
+        <div class="btns">
+        <button class="btn" onclick="prev()">Previous</button>
+        <button class="btn" onclick="next()">Next</button>
+        <button class="btn" onclick="add()">Add</button>
+  <!--     <input type="text" name="text" id="inputImg" />  -->
+        </div>
+    </div>
+
+    <script>
+        var slider_img = document.querySelector('.slide-img');
+        var images = ['img1.jpg', 'img2.jpg', 'img3.png', 'https://media.istockphoto.com/photos/space-background-wiht-stars-stock-image-picture-id1287901429?b=1&k=20&m=1287901429&s=170667a&w=0&h=RH6-KPEq-WYftCxoKnQixr8SOwyHlWr8F8EfloDmTxg='];
+        var i=0;
+
+        function prev() {
+            if(i<= 0) i=images.length;
+            i--;
+            return setImg();
+        }
+
+        function next() {
+            if( i>= images.length-1) i=-1;
+            i++;
+            return setImg();
+        }
+
+        function setImg(){
+            return slider_img.setAttribute('src', '' + images[i]);
+        }
+
+        function add() {
+            var imgAddress = prompt("Enter the image address of the image");
+            images.push(imgAddress);
+            alert("new image added to the list");
+        }
+    </script>
+
+</body>
+</html>
